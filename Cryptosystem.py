@@ -1,3 +1,8 @@
+
+import math
+from decimal import *
+import datetime
+
 def encrypt():
     #Get the inputs
     plain = input("Enter the plain text: ")
@@ -30,20 +35,26 @@ def decrypt():
     #Convert to the ascii 
     while plain_text !=0:
         r = plain_text % 1000
-        list_charinsert(0,r)
+        list_char.insert(0,r)
         plain_text = plain_text // 1000
 	
     print("\nPlain text : ", bytes(list_char).decode())
 
-def main():
-    print("-------CryptoSystem-------")
-    input_num = int(input("Enter your choice 1.Encrypt: 2.Decrypt:"))
-    if input_num == 1:
-        encrypt()
-    elif input_num == 2:
-        decrypt()
-    else:
-        print("Input should be either 1 or 2")
-
-if __name__ == "__main__":
-    main()
+while True:
+    def main():
+        print("-------CryptoSystem-------")
+        try:
+            input_num = int(input("Enter your choice:  1.Encrypt: 2.Decrypt: 3. Exit -- "))
+            if input_num == 1:
+                encrypt()
+            elif input_num == 2:
+                decrypt()
+            elif input_num == 3:
+                quit()
+            else:
+                print("Input should be numeric, either 1, 2 or 3")
+                pass
+        except Exception as e:
+            print("Invalid Input, try again")
+    if __name__ == "__main__":
+        main()

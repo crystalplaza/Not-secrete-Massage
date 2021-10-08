@@ -17,8 +17,23 @@ def encrypt():
     print("\n Cipher text : ", cipher)
 
 
-#def decrypt():
+def decrypt():
+    #Get the inputs
+    cipher_text = int(input("Enter the Cipher text: "))
+    pub_key = int(input("Enter the public key: "))
+    private_exponent = int(input("Enter the private exponent d: "))
 
+    # C power d mod N
+    plain_text = pow(cipher_text,private_exponent,pub_key)
+
+    list_char = []
+    #Convert to the ascii 
+    while plain_text !=0:
+        r = plain_text % 1000
+        list_charinsert(0,r)
+        plain_text = plain_text // 1000
+	
+    print("\nPlain text : ", bytes(list_char).decode())
 
 def main():
     print("-------CryptoSystem-------")
@@ -26,8 +41,7 @@ def main():
     if input_num == 1:
         encrypt()
     elif input_num == 2:
-    #    decrypt()
-        print("test")
+        decrypt()
     else:
         print("Input should be either 1 or 2")
 
